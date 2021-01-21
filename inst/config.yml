@@ -1,0 +1,17 @@
+default:
+  default_template_values:
+    badge_width: 71
+    font_name: 'DejaVu Sans,Verdana,Geneva,sans-serif'
+    font_size: 11
+    label: 'label'
+    value: 'value'
+    label_anchor: 20.5
+    label_anchor_shadow: 21.5
+    value_anchor: 56.0
+    value_anchor_shadow: 57.0
+    color: '#e05d44'
+    label_text_color: '#fff'
+    value_text_color: '#fff'
+    color_split_x: 41
+    value_width: 30
+    mask_id: 'anybadge1'
