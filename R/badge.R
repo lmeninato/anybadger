@@ -1,7 +1,26 @@
+#' Add documentation
 #' @importFrom glue glue
 #' @export
 Badge <- R6::R6Class("Badge",
+  portable = T,
   public = list(
+
+    #' @description
+    #' Documentation here
+    #'
+    #' @param label todo
+    #' @param value todo
+    #' @param font_name todo
+    #' @param font_size todo
+    #' @param thresholds todo
+    #' @param default_color todo
+    #' @param text_color todo
+    #' @param svg_template_path todo
+    #'
+    #' @return null
+    #'
+    #' @examples
+    #' b <- Badge$new()
     initialize = function(label = NULL,
                           value = NULL,
                           font_name = NULL,
@@ -21,14 +40,27 @@ Badge <- R6::R6Class("Badge",
         private$svg_template <- readLines(svg_template_path)
       }
     },
+
+    #' @description
+    #' Todo
+    #'
+    #' @param path todo
+    #'
+    #' @return todo
+    #'
+    #' @examples
+    #' \dontrun{
+    #' b <- Badge$new()
+    #' b$create_svg()
+    #' }
     create_svg = function(path = "default_badge.svg"){
       res <- private$svg_template
       bd <- badge_defaults()
       purrr::walk2(names(bd), bd, function(key, value){
         key <- gsub("_", " ", key)
-        res <<- stringr::str_replace_all(res,
-                                         paste0("\\{\\{ ", key," \\}\\}"),
-                                         as.character(value))
+        res <<- gsub(paste0("\\{\\{ ", key," \\}\\}"),
+                     as.character(value),
+                     res)
       })
 
       writeLines(text = res, con = path)
@@ -47,22 +79,3 @@ Badge <- R6::R6Class("Badge",
     svg_output = NULL
   )
 )
-
-# label <- 'my label'
-# value_text <- '123.123'
-#
-# lines <- get_sys("svg_template") %>%
-#   readLines() %>%
-#   stringr::str_replace_all(lines, "\\{\\{ badge width \\}\\}", '71') %>%
-#   stringr::str_replace_all(lines,
-#                            "\\{\\{ font name \\}\\}",
-#                            'DejaVu Sans,Verdana,Geneva,sans-serif') %>%
-#   stringr::str_replace_all(lines, "\\{\\{ font size \\}\\}", '11') %>%
-#   stringr::str_replace_all(lines, "\\{\\{ label \\}\\}", label) %>%
-#   stringr::str_replace_all(lines, "\\{\\{ value \\}\\}", value_text)
-
-
-
-
-
-
