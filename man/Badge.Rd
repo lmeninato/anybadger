@@ -41,11 +41,12 @@ Documentation here
 \if{html}{\out{<div class="r">}}\preformatted{Badge$new(
   label = NULL,
   value = NULL,
+  thresholds = NULL,
   font_name = NULL,
   font_size = NULL,
-  thresholds = NULL,
-  default_color = NULL,
-  text_color = NULL,
+  label_text_color = NULL,
+  value_text_color = NULL,
+  color = NULL,
   svg_template_path = NULL
 )}\if{html}{\out{</div>}}
 }
@@ -57,15 +58,17 @@ Documentation here
 
 \item{\code{value}}{todo}
 
+\item{\code{thresholds}}{todo}
+
 \item{\code{font_name}}{todo}
 
 \item{\code{font_size}}{todo}
 
-\item{\code{thresholds}}{todo}
+\item{\code{label_text_color}}{todo}
 
-\item{\code{default_color}}{todo}
+\item{\code{value_text_color}}{todo}
 
-\item{\code{text_color}}{todo}
+\item{\code{color}}{todo}
 
 \item{\code{svg_template_path}}{todo}
 }
