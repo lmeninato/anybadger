@@ -4,6 +4,8 @@ Title: Create Project Badges from R
 Version: 0.1.0
 Author: Lorenzo Meninato
 Maintainer: Lorenzo Meninato <lorenzomeninato@gmail.com>
+URL: https://github.com/lmeninato/anybadger
+BugReports: https://github.com/lmeninato/anybadger/issues
 Description: Create Project Badges from R
     This project was inspired by the anybadge library in python.
     You can use this package to create custom badges in a standard svg format.
