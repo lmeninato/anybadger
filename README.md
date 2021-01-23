@@ -4,7 +4,6 @@
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/lmeninato/anybadger/workflows/R-CMD-check/badge.svg)](https://github.com/lmeninato/anybadger/actions)
 [![Codecov test coverage](https://codecov.io/gh/lmeninato/anybadger/branch/master/graph/badge.svg)](https://codecov.io/gh/lmeninato/anybadger?branch=master)
-[![anybadger](https://github.com/lmeninato/anybadger/workflows/anybadger/anybadger.svg)](https://github.com/lmeninato/anybadger/actions)
 <!-- badges: end -->
 
 The goal of anybadger is to provide an easy way to create custom project badges in R.
