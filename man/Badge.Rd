@@ -14,7 +14,8 @@ Add documentation
 ## Method `Badge$new`
 ## ------------------------------------------------
 
-b <- Badge$new()
+b <- Badge$new(label = "Pipeline",
+               value = "Passing")
 
 ## ------------------------------------------------
 ## Method `Badge$create_svg`
@@ -39,14 +40,15 @@ b$create_svg()
 Documentation here
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Badge$new(
-  label = NULL,
-  value = NULL,
+  label,
+  value,
+  color = "#4c1",
+  num_padding_chars = 0.5,
   thresholds = NULL,
-  font_name = NULL,
-  font_size = NULL,
-  label_text_color = NULL,
-  value_text_color = NULL,
-  color = NULL,
+  font_name = "DejaVu Sans,Verdana,Geneva,sans-serif",
+  font_size = 11,
+  label_text_color = "#fff",
+  value_text_color = "#fff",
   svg_template_path = NULL
 )}\if{html}{\out{</div>}}
 }
@@ -58,6 +60,10 @@ Documentation here
 
 \item{\code{value}}{todo}
 
+\item{\code{color}}{todo}
+
+\item{\code{num_padding_chars}}{todo}
+
 \item{\code{thresholds}}{todo}
 
 \item{\code{font_name}}{todo}
@@ -68,8 +74,6 @@ Documentation here
 
 \item{\code{value_text_color}}{todo}
 
-\item{\code{color}}{todo}
-
 \item{\code{svg_template_path}}{todo}
 }
 \if{html}{\out{</div>}}
@@ -79,7 +83,8 @@ null
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{b <- Badge$new()
+\preformatted{b <- Badge$new(label = "Pipeline",
+               value = "Passing")
 }
 \if{html}{\out{</div>}}
 

@@ -2,3 +2,5 @@
 
 export(Badge)
 importFrom(glue,glue)
+importFrom(purrr,map_dbl)
+importFrom(purrr,reduce)

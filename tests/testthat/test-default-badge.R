@@ -8,7 +8,8 @@ teardown({
 
 test_that("default badge works", {
   # use text fixtures later...
-  b <- Badge$new()
+  b <- Badge$new(label = "Pipeline",
+                 value = "Passing")
   res <- b$create_svg(path = tmp)
 
   # check valid svg file?
