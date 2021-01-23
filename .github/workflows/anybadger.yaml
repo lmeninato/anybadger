@@ -11,7 +11,7 @@ on:
 name: anybadger
 
 jobs:
-  test-coverage:
+  anybadger:
     runs-on: macOS-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -47,5 +47,5 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: anybadger-badge
-          path: anybadger
+          path: anybadger.svg
 
