@@ -22,7 +22,8 @@ b <- Badge$new(label = "Pipeline",
 ## ------------------------------------------------
 
 \dontrun{
-b <- Badge$new()
+b <- Badge$new(label = "Any",
+               value = "Badger")
 b$create_svg()
 }
 }
@@ -112,7 +113,8 @@ todo
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
-b <- Badge$new()
+b <- Badge$new(label = "Any",
+               value = "Badger")
 b$create_svg()
 }
 }

@@ -35,13 +35,15 @@ Badge <- R6::R6Class("Badge",
                           label_text_color = '#fff',
                           value_text_color = '#fff',
                           svg_template_path = NULL){
-      private$user_vals = list("label" = label,
-                               "value" = value,
-                               "color" = color,
-                               "font_name" = font_name,
-                               "font_size" = font_size,
-                               "label_text_color" = label_text_color,
-                               "value_text_color" = value_text_color)
+      private$user_vals = list(
+        "label" = label,
+        "value" = value,
+        "color" = lookup_color_hex(color),
+        "font_name" = font_name,
+        "font_size" = font_size,
+        "label_text_color" = lookup_color_hex(label_text_color),
+        "value_text_color" = lookup_color_hex(value_text_color)
+      )
 
       private$num_padding_chars <- num_padding_chars
       private$thresholds <- thresholds
@@ -65,7 +67,8 @@ Badge <- R6::R6Class("Badge",
     #'
     #' @examples
     #' \dontrun{
-    #' b <- Badge$new()
+    #' b <- Badge$new(label = "Any",
+    #'                value = "Badger")
     #' b$create_svg()
     #' }
     create_svg = function(path = "default_badge.svg"){

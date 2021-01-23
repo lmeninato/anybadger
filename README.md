@@ -2,20 +2,25 @@
 # anybadger
 
 <!-- badges: start -->
+[![CircleCI build status](https://circleci.com/gh/lmeninato/anybadger.svg?style=svg)](https://circleci.com/gh/lmeninato/anybadger)
 <!-- badges: end -->
 
 The goal of anybadger is to provide an easy way to create custom project badges in R.
 
+Inspired *heavily* by the Python [anybadge](https://github.com/jongracecox/anybadge/).
+
 ## Installation
 
-Still in development.
+``` r
+remotes::install_github("lmeninato/anybadger")
+```
 
 ## Example
 
-Default badge:
+Pipeline badge:
 
 ``` r
 library(anybadger)
-b <- Badge$new()
-b$create_svg("default_badge.svg")
+b <- Badge$new(label = "Pipeline", value = "Passing")
+b$create_svg("pipeline_status.svg")
 ```
