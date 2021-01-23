@@ -84,7 +84,9 @@ jobs:
           path: check
 
       - name: Run anybadger
-        run: anybadger::create_badge("anybadger.svg", label = "any", value = "badger", color = "brown")
+        run: |
+          devtools::install(quick = TRUE, quiet = TRUE, dependencies = F, upgrade = F)
+          anybadger::create_badge("anybadger.svg", label = "any", value = "badger", color = "brown")
         shell: Rscript {0}
 
       - name: Upload any badger
