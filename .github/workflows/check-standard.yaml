@@ -82,15 +82,3 @@ jobs:
         with:
           name: ${{ runner.os }}-r${{ matrix.config.r }}-results
           path: check
-
-      - name: Run anybadger
-        run: |
-          remotes::install_local(dependencies = F, upgrade = F)
-          anybadger::create_badge("anybadger.svg", label = "any", value = "badger", color = "teal")
-        shell: Rscript {0}
-
-      - name: Upload any badger
-        uses: actions/upload-artifact@main
-        with:
-          name: anybadger-badge
-          path: anybadger.svg
