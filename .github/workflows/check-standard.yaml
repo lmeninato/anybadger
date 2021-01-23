@@ -85,7 +85,7 @@ jobs:
 
       - name: Run anybadger
         run: |
-          devtools::install(quick = TRUE, quiet = TRUE, dependencies = F, upgrade = F)
+          remotes::install_local(dependencies = F, upgrade = F)
           anybadger::create_badge("anybadger.svg", label = "any", value = "badger", color = "brown")
         shell: Rscript {0}
 
