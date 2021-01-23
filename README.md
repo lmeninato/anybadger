@@ -8,7 +8,7 @@
 
 The goal of anybadger is to provide an easy way to create custom project badges in R.
 
-Inspired *heavily* by the Python [anybadge](https://github.com/jongracecox/anybadge/).
+Inspired *heavily* by the Python [anybadge](https://github.com/jongracecox/anybadge/) library.
 
 ## Installation
 
