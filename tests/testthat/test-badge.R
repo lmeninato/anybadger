@@ -7,8 +7,7 @@ local_temp_file <- function(env = parent.frame()){
 }
 
 test_badge_creation <- function(svg_path, ...){
-  b <- Badge$new(...)
-  res <- b$create_svg(path = svg_path)
+  create_badge(svg_path, ...)
 
   xml_doc <- read_xml(svg_path)
   expect_s3_class(xml_doc, "xml_document")
@@ -59,8 +58,8 @@ test_that("catch non valid characters", {
   tmp <- local_temp_file()
 
   expect_error({
-    b <- Badge$new(label = "Pipeline",
-                   value = "asdn \t \n")
-    b$create_svg(tmp)
+    create_badge(tmp,
+                 label = "Pipeline",
+                 value = "asdn \t \n")
   })
 })

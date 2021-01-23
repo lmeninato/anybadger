@@ -1,4 +1,5 @@
 #' Add documentation
+#'
 #' @importFrom glue glue
 #' @importFrom purrr map_dbl reduce
 #' @export
@@ -195,3 +196,20 @@ Badge <- R6::R6Class("Badge",
     }
   )
 )
+
+#' Create badge svg
+#'
+#' @param path path to save svg to
+#' @param ... paramaters to pass to @seealso [Badge]
+#'
+#' @return svg text
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' create_badge("anybadger.svg", label = "any", value = "badger", color = "brown")
+#' }
+create_badge <- function(path, ...){
+  b <- Badge$new(...)
+  b$create_svg(path)
+}

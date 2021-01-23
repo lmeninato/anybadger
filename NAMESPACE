@@ -2,6 +2,7 @@
 
 export("%>%")
 export(Badge)
+export(create_badge)
 importFrom(glue,glue)
 importFrom(magrittr,"%>%")
 importFrom(magrittr,extract2)
