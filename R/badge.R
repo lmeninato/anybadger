@@ -1,4 +1,8 @@
-#' Add documentation
+#' The Badge class is used to create badges.
+#'
+#' It is likely easier to use the \code{\link{create_badge}}
+#' to create the badge svg in a single step.
+#'
 #'
 #' @importFrom glue glue
 #' @importFrom purrr map_dbl reduce
@@ -8,24 +12,31 @@ Badge <- R6::R6Class("Badge",
   public = list(
 
     #' @description
-    #' Documentation here
+    #' Badge constructor
     #'
-    #' @param label todo
-    #' @param value todo
-    #' @param color todo
-    #' @param num_padding_chars todo
-    #' @param font_name todo
-    #' @param font_size todo
-    #' @param thresholds todo
-    #' @param svg_template_path todo
-    #' @param label_text_color todo
-    #' @param value_text_color todo
+    #' Used to create badge object.
     #'
-    #' @return null
+    #' @param label left hand side of badge, e.g. "pipeline" in pipeline status badge
+    #' @param value right hand side of badge, e.g. "passing" in pipeline status badge
+    #' @param color to view available colors:
+    #'   \code{config::get("colors", file = anybadger:::get_sys("config.yml")) }
+    #'   alternatively you can also pass in the hex of your desired color. For instance,
+    #'   "#fe7d37" or "orange", either is accepted.
+    #' @param num_padding_chars NULL, can be passed in, but calculated automatically based on text length
+    #' @param font_name NULL, valid svg font will work, but sizing might be off
+    #' @param font_size NULL, if passng custom svg font
+    #' @param thresholds TODO, thresholds are not implemented yet, coming soon!
+    #' @param svg_template_path NULL, to use a different template in svg (not recommended)
+    #' @param label_text_color NULL, set this to change the label text color
+    #' @param value_text_color NULL, set this to change the value text color
+    #'
+    #' @return NULL
     #'
     #' @examples
+    #' tmp <- tempfile()
     #' b <- Badge$new(label = "Pipeline",
     #'                value = "Passing")
+    #' b$create_svg(tmp)
     initialize = function(label,
                           value,
                           color = '#4c1',
@@ -60,27 +71,29 @@ Badge <- R6::R6Class("Badge",
     },
 
     #' @description
-    #' Todo
+    #' Fills in the svg template
     #'
-    #' @param path todo
+    #' @param path file path to save badge svg to
     #'
-    #' @return todo
+    #' @return invisibly returns the svg text
     #'
     #' @examples
-    #' \dontrun{
+    #' tmp <- tempfile()
     #' b <- Badge$new(label = "Any",
     #'                value = "Badger")
-    #' b$create_svg()
-    #' }
+    #' b$create_svg(tmp)
+    #'
     create_svg = function(path = "default_badge.svg"){
       res <- private$svg_template
       badge_vals <- private$get_badge_vals()
-      purrr::walk2(names(badge_vals), badge_vals, function(key, value){
+
+      for (key in names(badge_vals)){
         key <- gsub("_", " ", key)
-        res <<- gsub(paste0("\\{\\{ ", key," \\}\\}"),
-                     as.character(value),
-                     res)
-      })
+        value <- badge_vals[key]
+        res <- gsub(paste0("\\{\\{ ", key," \\}\\}"),
+                    as.character(value),
+                    res)
+      }
 
       writeLines(text = res, con = path)
       invisible(res)
@@ -200,15 +213,15 @@ Badge <- R6::R6Class("Badge",
 #' Create badge svg
 #'
 #' @param path path to save svg to
-#' @param ... paramaters to pass to @seealso [Badge]
+#' @param ... parameters to pass to @seealso [Badge]
 #'
 #' @return svg text
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' create_badge("anybadger.svg", label = "any", value = "badger", color = "brown")
-#' }
+#' tmp <- tempfile()
+#' create_badge(tmp, label = "any", value = "badger", color = "fuchsia")
+#'
 create_badge <- function(path, ...){
   b <- Badge$new(...)
   b$create_svg(path)

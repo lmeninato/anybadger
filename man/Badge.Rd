@@ -2,11 +2,15 @@
 % Please edit documentation in R/badge.R
 \name{Badge}
 \alias{Badge}
-\title{Add documentation}
+\title{The Badge class is used to create badges.}
 \description{
-Add documentation
+The Badge class is used to create badges.
 
-Add documentation
+The Badge class is used to create badges.
+}
+\details{
+It is likely easier to use the \code{\link{create_badge}}
+to create the badge svg in a single step.
 }
 \examples{
 
@@ -14,18 +18,20 @@ Add documentation
 ## Method `Badge$new`
 ## ------------------------------------------------
 
+tmp <- tempfile()
 b <- Badge$new(label = "Pipeline",
                value = "Passing")
+b$create_svg(tmp)
 
 ## ------------------------------------------------
 ## Method `Badge$create_svg`
 ## ------------------------------------------------
 
-\dontrun{
+tmp <- tempfile()
 b <- Badge$new(label = "Any",
                value = "Badger")
-b$create_svg()
-}
+b$create_svg(tmp)
+
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -38,7 +44,9 @@ b$create_svg()
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-new"></a>}}
 \subsection{Method \code{new()}}{
-Documentation here
+Badge constructor
+
+Used to create badge object.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Badge$new(
   label,
@@ -57,35 +65,40 @@ Documentation here
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{label}}{todo}
+\item{\code{label}}{left hand side of badge, e.g. "pipeline" in pipeline status badge}
 
-\item{\code{value}}{todo}
+\item{\code{value}}{right hand side of badge, e.g. "passing" in pipeline status badge}
 
-\item{\code{color}}{todo}
+\item{\code{color}}{to view available colors:
+\code{config::get("colors", file = anybadger:::get_sys("config.yml")) }
+alternatively you can also pass in the hex of your desired color. For instance,
+"#fe7d37" or "orange", either is accepted.}
 
-\item{\code{num_padding_chars}}{todo}
+\item{\code{num_padding_chars}}{NULL, can be passed in, but calculated automatically based on text length}
 
-\item{\code{thresholds}}{todo}
+\item{\code{thresholds}}{TODO, thresholds are not implemented yet, coming soon!}
 
-\item{\code{font_name}}{todo}
+\item{\code{font_name}}{NULL, valid svg font will work, but sizing might be off}
 
-\item{\code{font_size}}{todo}
+\item{\code{font_size}}{NULL, if passng custom svg font}
 
-\item{\code{label_text_color}}{todo}
+\item{\code{label_text_color}}{NULL, set this to change the label text color}
 
-\item{\code{value_text_color}}{todo}
+\item{\code{value_text_color}}{NULL, set this to change the value text color}
 
-\item{\code{svg_template_path}}{todo}
+\item{\code{svg_template_path}}{NULL, to use a different template in svg (not recommended)}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Returns}{
-null
+NULL
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{b <- Badge$new(label = "Pipeline",
+\preformatted{tmp <- tempfile()
+b <- Badge$new(label = "Pipeline",
                value = "Passing")
+b$create_svg(tmp)
 }
 \if{html}{\out{</div>}}
 
@@ -95,7 +108,7 @@ null
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-create_svg"></a>}}
 \subsection{Method \code{create_svg()}}{
-Todo
+Fills in the svg template
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Badge$create_svg(path = "default_badge.svg")}\if{html}{\out{</div>}}
 }
@@ -103,20 +116,20 @@ Todo
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{path}}{todo}
+\item{\code{path}}{file path to save badge svg to}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Returns}{
-todo
+invisibly returns the svg text
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
+\preformatted{tmp <- tempfile()
 b <- Badge$new(label = "Any",
                value = "Badger")
-b$create_svg()
-}
+b$create_svg(tmp)
+
 }
 \if{html}{\out{</div>}}
 

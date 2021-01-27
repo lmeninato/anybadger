@@ -9,7 +9,7 @@ create_badge(path, ...)
 \arguments{
 \item{path}{path to save svg to}
 
-\item{...}{paramaters to pass to @seealso [Badge]}
+\item{...}{parameters to pass to @seealso [Badge]}
 }
 \value{
 svg text
@@ -18,7 +18,7 @@ svg text
 Create badge svg
 }
 \examples{
-\dontrun{
-create_badge("anybadger.svg", label = "any", value = "badger", color = "brown")
-}
+tmp <- tempfile()
+create_badge(tmp, label = "any", value = "badger", color = "fuchsia")
+
 }
