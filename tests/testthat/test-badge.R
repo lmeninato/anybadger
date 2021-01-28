@@ -21,8 +21,7 @@ test_that("badge creation works", {
                       label = "Pipeline",
                       value = "Passing")
 
-  default_badge <- get_sys("testsvg", "pipeline_badge_test.svg") %>%
-    read_xml()
+  default_badge <- read_xml("../testsvg/pipeline_badge_test.svg")
 
   expect_equal(x, default_badge)
 
@@ -31,8 +30,7 @@ test_that("badge creation works", {
                              value = "Passing",
                              color = "blue")
 
-  test_color_badge <- get_sys("testsvg", "test_color.svg") %>%
-    read_xml()
+  test_color_badge <- read_xml("../testsvg/test_color.svg")
 
   expect_equal(x, test_color_badge)
 
