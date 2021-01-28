@@ -17,9 +17,24 @@ test_badge_creation <- function(svg_path, ...){
 test_that("badge creation works", {
   tmp <- local_temp_file()
 
-  test_badge_creation(tmp,
+  x <- test_badge_creation(tmp,
                       label = "Pipeline",
                       value = "Passing")
+
+  default_badge <- get_sys("testsvg", "pipeline_badge_test.svg") %>%
+    read_xml()
+
+  expect_equal(x, default_badge)
+
+  x <- test_badge_creation(tmp,
+                             label = "Pipeline",
+                             value = "Passing",
+                             color = "blue")
+
+  test_color_badge <- get_sys("testsvg", "test_color.svg") %>%
+    read_xml()
+
+  expect_equal(x, test_color_badge)
 
   # test alternate font
   test_badge_creation(tmp,
@@ -31,13 +46,13 @@ test_that("badge creation works", {
   res <- test_badge_creation(tmp,
                              label = "Pipeline",
                              value = "Passing",
-                             color = "blue") %>%
+                             color = "orange") %>%
     xml_child(3) %>%
     xml_child(2) %>%
     as_list() %>%
     attributes()
 
-  expect_equal(res$fill, "#0000FF")
+  expect_equal(res$fill, "#fe7d37")
 
   # alternate svg template path
   test_badge_creation(tmp,

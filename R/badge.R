@@ -88,9 +88,9 @@ Badge <- R6::R6Class("Badge",
       badge_vals <- private$get_badge_vals()
 
       for (key in names(badge_vals)){
-        key <- gsub("_", " ", key)
+        template_key <- gsub("_", " ", key)
         value <- badge_vals[key]
-        res <- gsub(paste0("\\{\\{ ", key," \\}\\}"),
+        res <- gsub(paste0("\\{\\{ ", template_key," \\}\\}"),
                     as.character(value),
                     res)
       }
