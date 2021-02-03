@@ -1,7 +1,7 @@
 Package: anybadger
 Type: Package
 Title: Create Custom Pipeline Badges
-Version: 0.1.0
+Version: 0.1.1
 Author: Lorenzo Meninato
 Maintainer: Lorenzo Meninato <lorenzomeninato@gmail.com>
 URL: https://github.com/lmeninato/anybadger
