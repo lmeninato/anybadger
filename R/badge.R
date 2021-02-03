@@ -24,7 +24,7 @@ Badge <- R6::R6Class("Badge",
     #'   "#fe7d37" or "orange", either is accepted.
     #' @param num_padding_chars NULL, can be passed in, but calculated automatically based on text length
     #' @param font_name NULL, valid svg font will work, but sizing might be off
-    #' @param font_size NULL, if passng custom svg font
+    #' @param font_size NULL, if passing custom svg font
     #' @param thresholds TODO, thresholds are not implemented yet, coming soon!
     #' @param svg_template_path NULL, to use a different template in svg (not recommended)
     #' @param label_text_color NULL, set this to change the label text color

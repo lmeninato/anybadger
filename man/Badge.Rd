@@ -80,7 +80,7 @@ alternatively you can also pass in the hex of your desired color. For instance,
 
 \item{\code{font_name}}{NULL, valid svg font will work, but sizing might be off}
 
-\item{\code{font_size}}{NULL, if passng custom svg font}
+\item{\code{font_size}}{NULL, if passing custom svg font}
 
 \item{\code{label_text_color}}{NULL, set this to change the label text color}
 
